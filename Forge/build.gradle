@@ -79,7 +79,7 @@ dependencies {
 
 mixin {
     // MixinGradle Settings
-    add sourceSets.main, 'mixins.mavm.refmap.json'
+    add sourceSets.main, 'mavm-forge-1.18.1-refmap.json'
     config 'mixins.mavm.json'
 }
 
