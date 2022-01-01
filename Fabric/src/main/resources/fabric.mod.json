@@ -1,0 +1,40 @@
+{
+    "schemaVersion": 1,
+    "id": "mavm",
+    "version": "${version}",
+  
+    "name": "More Axolotl Variants Mod",
+    "description": "Adds more axolotl variants!",
+    "authors": [
+      "Akashii_Kun"
+    ],
+  
+    "license": "ARR",
+    "icon": "icon.png",
+  
+    "environment": "*",
+    "entrypoints": {
+      "main": [
+        "io.github.akashiikun.mavm.MoreAxolotlVariantsMod"
+      ]
+    },
+    "mixins": [
+      "mixins.mavm.json"
+    ],
+
+  "entrypoints": {
+    "dynamiclights": [
+      "io.github.akashiikun.mavm.compatibility.AxolotlDynamicLights"
+    ]
+  },
+  
+    "depends": {
+      "fabricloader": ">=0.12",
+      "minecraft": "1.18.x",
+      "java": ">=17"
+    },
+    "suggests": {
+      "another-mod": "*"
+    }
+  }
+  
