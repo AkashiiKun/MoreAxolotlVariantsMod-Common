@@ -10,14 +10,14 @@ logoFile="logo.png"
 authors="Akashii_Kun"
 description='''Adds more axolotl variants!'''
 
-[[dependencies.mavm]]
+[[dependencies.mavm-bp]]
    modId="forge"
    mandatory=true
    versionRange="[36,)"
    ordering="NONE"
    side="BOTH"
 
-[[dependencies.mavm]]
+[[dependencies.mavm-bp]]
    modId="minecraft"
    mandatory=true
    versionRange="[1.16.5]"
@@ -25,7 +25,7 @@ description='''Adds more axolotl variants!'''
    side="BOTH"
 
 # Caves & Cliffs Backport
-[[dependencies.mavm]]
+[[dependencies.mavm-bp]]
    modId="cavesandcliffs"
    mandatory=true
    versionRange="[1.16.5-7.2.0]"

@@ -15,7 +15,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
 
 group = 'io.github.akashiikun'
-version = '1.0.0'
+version = '1.0.0a'
 
 java {
     archivesBaseName = 'mavm-bp'
