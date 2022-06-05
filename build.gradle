@@ -1,55 +1,71 @@
-subprojects {
-    
-    apply plugin: 'java'
-    
+plugins {
+    id 'org.ajoberstar.grgit' version '4.1.0'
+}
+
+ext.buildnumber = System.getenv('GITHUB_RUN_NUMBER')
+project.buildnumber = System.getenv('BUILD_NUMBER') != null ? System.getenv('BUILD_NUMBER') : 'custom'
+
+allprojects {
+    apply plugin: "java"
+    apply plugin: "maven-publish"
+    apply plugin: "org.ajoberstar.grgit"
+
+    //apply plugin: "com.github.johnrengelman.shadow"
+
+    // Forge needs this
     java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-    java.withSourcesJar()
-    java.withJavadocJar()
-        
-    jar {
-        manifest {
-            attributes([
-                'Specification-Title'     : mod_name,
-                'Specification-Vendor'    : mod_author,
-                'Specification-Version'   : project.jar.archiveVersion,
-                'Implementation-Title'    : project.name,
-                'Implementation-Version'  : project.jar.archiveVersion,
-                'Implementation-Vendor'   : mod_author,
-                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-                'Timestampe'              : System.currentTimeMillis(),
-                'Built-On-Java'           : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
-                'Build-On-Minecraft'      : minecraft_version
-            ])
-        }
-    }
-    
+
+    archivesBaseName = "${project.mod_id}-mc${project.minecraft_version}-${project.name.toLowerCase()}"
+    version = "${project.mod_version}"
+    group = rootProject.maven_group
     repositories {
-
         mavenCentral()
-
         maven {
-            name = 'Sponge / Mixin'
-            url = 'https://repo.spongepowered.org/repository/maven-public/'
+            url = "https://repo.spongepowered.org/repository/maven-public/"
         }
-
+        maven { url 'https://api.modrinth.com/maven'
+            content {
+                includeGroup "maven.modrinth"
+            }
+        }
         maven {
-            name = 'BlameJared Maven (CrT / Bookshelf)'
-            url = 'https://maven.blamejared.com'
+            name 'Gegy'
+            url 'https://maven.gegy.dev'
+        }
+        maven {
+            name 'Quilt'
+            url 'https://maven.quiltmc.org/repository/release'
         }
     }
-    
 
-    tasks.withType(JavaCompile).configureEach {
-    
-        it.options.encoding = 'UTF-8'
-        it.options.release = 17
+    processResources {
+        inputs.property "mod_id", rootProject.mod_id
+        inputs.property "mod_version", rootProject.mod_version
+        inputs.property "mod_name", rootProject.mod_name
+        inputs.property "mod_description", rootProject.mod_description
+        inputs.property "mod_author", rootProject.mod_author
+        inputs.property "maven_group", rootProject.maven_group
+        inputs.property "license", rootProject.mod_license
     }
 
-    // Disables Gradle's custom module metadata from being published to maven. The
-    // metadata includes mapped dependencies which are not reasonably consumable by
-    // other mod developers.
-    tasks.withType(GenerateModuleMetadata) {
-
-        enabled = false
+    // configure the maven publication
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                artifactId = rootProject.mod_id + "-" + project.name
+                groupId project.group
+                artifactId project.archivesBaseName
+                version project.version
+                from components.java
+            }
+        }
+        repositories {
+            repositories {
+                maven {
+                    url "file://" + System.getenv("local_maven")
+                }
+            }
+        }
     }
+
 }

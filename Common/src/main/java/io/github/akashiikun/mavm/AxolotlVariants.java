@@ -1,7 +1,6 @@
 package io.github.akashiikun.mavm;
 
 public enum AxolotlVariants {
-
     LUCIA(true),
     WILDER(true),
     GOLDEN(true),

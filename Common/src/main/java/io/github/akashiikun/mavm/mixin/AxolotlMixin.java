@@ -17,9 +17,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Axolotl.class)
-public abstract class AxolotlEntityMixin extends Animal implements LerpingModel, Bucketable {
+public abstract class AxolotlMixin extends Animal implements LerpingModel, Bucketable {
 
-    private AxolotlEntityMixin(EntityType<? extends Animal> entityType, Level level) {
+    private AxolotlMixin(EntityType<? extends Animal> entityType, Level level) {
         super(entityType, level);
     }
 

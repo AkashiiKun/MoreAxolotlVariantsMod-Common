@@ -6,10 +6,10 @@
 # The name of the mod loader type to load - for regular FML @Mod mods it should be javafml
 modLoader="javafml" #mandatory
 # A version range to match for said mod loader - for regular FML @Mod it will be the forge version
-loaderVersion="[38,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+loaderVersion="[40,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
 # The license for you mod. This is mandatory metadata and allows for easier comprehension of your redistributive properties.
 # Review your options at https://choosealicense.com/. All rights reserved is the default copyright stance, and is thus the default here.
-license="All rights reserved"
+license="ALL RIGHTS RESERVED" #mandatory
 # A URL to refer people to when problems occur with this mod
 #issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/" #optional
 # A list of mods - how many allowed here is determined by the individual mod loader
@@ -19,7 +19,7 @@ modId="mavm" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
 # ${file.jarVersion} will substitute the value of the Implementation-Version as read from the mod's JAR file metadata
 # see the associated build.gradle script for how to populate this completely automatically during a build
-version="1.0.7a" #mandatory
+version="1.0.8" #mandatory
  # A display name for the mod
 displayName="More Axolotl Variants Mod" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification https://mcforge.readthedocs.io/en/latest/gettingstarted/autoupdate/
@@ -33,9 +33,7 @@ credits="" #optional
 # A text field displayed in the mod UI
 authors="Akashii_Kun" #optional
 # The description text for the mod (multi line!) (#mandatory)
-description='''
-Adds more axolotl variants!
-'''
+description="Adds more axolotl variants!"
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.multiloader]] #optional
     # the modid of the dependency
@@ -56,3 +54,7 @@ Adds more axolotl variants!
     versionRange="[1.18,1.19)"
     ordering="NONE"
     side="BOTH"
+# This is a list for publishing the mod's jar releases.
+[custom.mc-publish]
+    curseforge=498797
+    modrinth="zitu8weW"
