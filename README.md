@@ -1,8 +1,13 @@
 # More Axolotl Variants Mod
 
-[![Java](https://forthebadge.com/images/badges/made-with-java.svg)](https://java.com/)
+[![Discord](https://discord.com/api/guilds/984426921184071781/widget.png?style=banner2)](https://discord.gg/eqFUJQTkNr)
 
+[![Java](https://img.shields.io/badge/Made%20with-JAVA-red)](https://java.com/)
 [![License: ARR](https://img.shields.io/badge/license-ARR-red.svg)](LICENSE)
+
+[![Modrinth](https://modrinth-utils.vercel.app/api/badge/downloads?id=zitu8weW&logo=true)](https://modrinth.com/mod/mavm)
+[![Modrinth](https://modrinth-utils.vercel.app/api/badge/versions?id=zitu8weW)](https://modrinth.com/mod/mavm)
+
 [![Downloads](http://cf.way2muchnoise.eu/full_498797_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/mavm)
 [![Versions](http://cf.way2muchnoise.eu/versions/498797.svg)](https://www.curseforge.com/minecraft/mc-mods/mavm)
 
