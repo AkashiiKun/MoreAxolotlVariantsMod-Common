@@ -15,9 +15,6 @@
     "entrypoints": {
       "init": [
         "io.github.akashiikun.mavm.MoreAxolotlVariantsMod"
-      ],
-      "dynamiclights": [
-        "io.github.akashiikun.mavm.compatibility.AxolotlDynamicLights"
       ]
     },
     "mixins": [
@@ -25,15 +22,8 @@
     ],
     "depends": {
       "fabricloader": ">=0.13",
-      "fabric": "*",
-      "minecraft": "1.18.x",
+      "minecraft": ">=1.18",
       "java": ">=17"
-    },
-  "custom": {
-    "mc-publish": {
-      "modrinth": "zitu8weW",
-      "curseforge": "498797"
     }
-  }
 }
   

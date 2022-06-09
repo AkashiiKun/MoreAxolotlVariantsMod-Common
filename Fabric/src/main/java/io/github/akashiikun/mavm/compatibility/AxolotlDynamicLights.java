@@ -1,5 +1,5 @@
 package io.github.akashiikun.mavm.compatibility;
-
+/*
 import dev.lambdaurora.lambdynlights.api.DynamicLightsInitializer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
@@ -19,4 +19,4 @@ public class AxolotlDynamicLights implements DynamicLightsInitializer {
         });
     }
 
-}
+}*/
