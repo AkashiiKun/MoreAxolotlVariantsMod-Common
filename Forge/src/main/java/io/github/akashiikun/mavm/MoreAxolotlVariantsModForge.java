@@ -14,22 +14,16 @@
 
 package io.github.akashiikun.mavm;
 
-public enum AxolotlVariants {
-    LUCIA(true),
-    WILDER(true),
-    GOLDEN(true),
-    GREEN(true),
-    SKULK(false),
-    BLACK(true),
-    RED(true),
-    GLOWXOLOTL(false),
-    WHITE(true),
-    CYANIDE(true);
+import io.github.akashiikun.mavm.MoreAxolotlVariantsMod;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-    public boolean natural;
-    public String name;
-    private AxolotlVariants(boolean natural) {
-        this.natural = natural;
-        this.name = name();
+@Mod(MoreAxolotlVariantsMod.MOD_ID)
+public class MoreAxolotlVariantsModForge {
+    public MoreAxolotlVariantsModForge() {
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        MoreAxolotlVariantsMod.init();
     }
+
 }

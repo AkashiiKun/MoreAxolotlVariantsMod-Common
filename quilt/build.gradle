@@ -4,7 +4,11 @@ plugins {
 
 architectury {
     platformSetupLoomIde()
-    forge()
+    loader("quilt")
+}
+
+loom {
+    accessWidenerPath = project(":common").loom.accessWidenerPath
 }
 
 configurations {
@@ -12,24 +16,28 @@ configurations {
     shadowCommon // Don't use shadow from the shadow plugin because we don't want IDEA to index this.
     compileClasspath.extendsFrom common
     runtimeClasspath.extendsFrom common
-    developmentForge.extendsFrom common
+    developmentQuilt.extendsFrom common
+}
+
+repositories {
+    maven { url "https://maven.quiltmc.org/repository/release" }
 }
 
 dependencies {
-    forge "net.minecraftforge:forge:${minecraft_version}-${rootProject.forge_version}"
+    modImplementation "org.quiltmc:quilt-loader:${rootProject.quilt_loader_version}"
+    modApi "org.quiltmc.quilted-fabric-api:quilted-fabric-api:${quilted_fabric_api_version}-${minecraft_version}"
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
-    shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionQuilt")) { transitive false }
 }
 
 shadowJar {
-    exclude "fabric.mod.json"
-
     configurations = [project.configurations.shadowCommon]
     classifier "dev-shadow"
 }
 
 remapJar {
+    injectAccessWidener = true
     input.set shadowJar.archiveFile
     dependsOn shadowJar
     classifier null

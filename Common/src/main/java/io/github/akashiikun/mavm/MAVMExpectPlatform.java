@@ -14,22 +14,14 @@
 
 package io.github.akashiikun.mavm;
 
-public enum AxolotlVariants {
-    LUCIA(true),
-    WILDER(true),
-    GOLDEN(true),
-    GREEN(true),
-    SKULK(false),
-    BLACK(true),
-    RED(true),
-    GLOWXOLOTL(false),
-    WHITE(true),
-    CYANIDE(true);
+import dev.architectury.injectables.annotations.ExpectPlatform;
 
-    public boolean natural;
-    public String name;
-    private AxolotlVariants(boolean natural) {
-        this.natural = natural;
-        this.name = name();
+import java.nio.file.Path;
+
+public class MAVMExpectPlatform {
+    @ExpectPlatform
+    public static Path getConfigDirectory() {
+        // Just throw an error, the content should get replaced at runtime.
+        throw new AssertionError();
     }
 }

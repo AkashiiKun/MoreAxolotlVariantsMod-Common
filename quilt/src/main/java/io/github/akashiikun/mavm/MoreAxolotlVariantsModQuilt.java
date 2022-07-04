@@ -14,22 +14,13 @@
 
 package io.github.akashiikun.mavm;
 
-public enum AxolotlVariants {
-    LUCIA(true),
-    WILDER(true),
-    GOLDEN(true),
-    GREEN(true),
-    SKULK(false),
-    BLACK(true),
-    RED(true),
-    GLOWXOLOTL(false),
-    WHITE(true),
-    CYANIDE(true);
+import io.github.akashiikun.mavm.MoreAxolotlVariantsMod;
+import org.quiltmc.loader.api.ModContainer;
+import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 
-    public boolean natural;
-    public String name;
-    private AxolotlVariants(boolean natural) {
-        this.natural = natural;
-        this.name = name();
+public class MoreAxolotlVariantsModQuilt implements ModInitializer {
+    @Override
+    public void onInitialize(ModContainer mod) {
+        MoreAxolotlVariantsMod.init();
     }
 }
