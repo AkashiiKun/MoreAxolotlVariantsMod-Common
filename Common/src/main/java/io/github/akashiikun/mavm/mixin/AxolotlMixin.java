@@ -13,6 +13,7 @@
  */
 
 package io.github.akashiikun.mavm.mixin;
+
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -32,25 +33,25 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Axolotl.class)
 public abstract class AxolotlMixin extends Animal implements LerpingModel, Bucketable {
 
-    private AxolotlMixin(EntityType<? extends Animal> entityType, Level level) {
-        super(entityType, level);
+    private AxolotlMixin(EntityType<? extends Animal> entityType, Level world) {
+        super(entityType, world);
     }
 
     @Shadow
     public abstract Axolotl.Variant getVariant();
 
     @Inject(method = "getAmbientSound", at = @At("TAIL"), cancellable = true)
-    protected void getAmbientSound(CallbackInfoReturnable<SoundEvent> cir) {
-        if (getVariant().getName().equals("glowxolotl"))
+    protected void mavm$setGlowxolotlSounds(CallbackInfoReturnable<SoundEvent> cir) {
+        if (getVariant().getName().equals("mavm:glowxolotl"))
             if(Math.floor((Math.random() * 4)) == 2) {
                 cir.setReturnValue(SoundEvents.GLOW_SQUID_AMBIENT);
             }
     }
 
     @Inject(at = @At("RETURN"), method = "baseTick")
-    public void baseTick(CallbackInfo ci) {
+    public void mavm$setGlowxolotlParticles(CallbackInfo ci) {
         Axolotl $this = Axolotl.class.cast(this);
-        if (getVariant().getName().equals("glowxolotl")) {
+        if (getVariant().getName().equals("mavm:glowxolotl")) {
             int i = (int) Math.floor((Math.random() * 32));
             if (i == 2 || i == 4) {
                 if(this.isBaby()) {

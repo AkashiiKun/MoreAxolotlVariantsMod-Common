@@ -26,10 +26,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(EntityRenderer.class)
 public class EntityRendererMixin<T extends Entity> {
     @Inject(method = "getBlockLightLevel", at = @At("TAIL"), cancellable = true)
-    protected void getBlockLight(T entity, BlockPos pos, CallbackInfoReturnable<Integer> cir) {
+    protected void mavm$setGlowVariants(T entity, BlockPos pos, CallbackInfoReturnable<Integer> cir) {
         if(entity instanceof Axolotl axolotl){
             Axolotl.Variant variant = axolotl.getVariant();
-            if(variant.getName().equals("glowxolotl"))
+            if(variant.getName().equals("mavm:glowxolotl"))
+                cir.setReturnValue(15);
+            if(variant.getName().equals("mavm:white") && entity.hasCustomName() && "partyxolotl".equals(entity.getName().getString()))
                 cir.setReturnValue(15);
         }
     }

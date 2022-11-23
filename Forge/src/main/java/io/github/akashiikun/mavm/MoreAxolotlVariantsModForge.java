@@ -14,16 +14,24 @@
 
 package io.github.akashiikun.mavm;
 
-import io.github.akashiikun.mavm.MoreAxolotlVariantsMod;
-import net.minecraftforge.eventbus.api.IEventBus;
+import forge.io.github.akashiikun.mavapi.v1.api.ModdedAxolotlVariant;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-@Mod(MoreAxolotlVariantsMod.MOD_ID)
+import static io.github.akashiikun.mavm.MoreAxolotlVariantsMod.MOD_ID;
+
+@Mod(MOD_ID)
 public class MoreAxolotlVariantsModForge {
     public MoreAxolotlVariantsModForge() {
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-        MoreAxolotlVariantsMod.init();
+        for(AxolotlVariants variant: AxolotlVariants.values()) {
+            if(variant.natural) {
+                ModdedAxolotlVariant.register(new ResourceLocation(MOD_ID, variant.name().toLowerCase()))
+                        .natural()
+                        .build();
+            } else {
+                ModdedAxolotlVariant.register(new ResourceLocation(MOD_ID, variant.name().toLowerCase()))
+                        .build();
+            }
+        }
     }
-
 }
