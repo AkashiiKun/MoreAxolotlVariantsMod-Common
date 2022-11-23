@@ -3,11 +3,11 @@
   "package": "io.github.akashiikun.mavm.mixin",
   "compatibilityLevel": "JAVA_17",
   "client": [
+    "AxolotlEntityRendererMixin",
     "EntityRendererMixin"
   ],
   "mixins": [
-    "AxolotlMixin",
-    "VariantMixin"
+    "AxolotlMixin"
   ],
   "injectors": {
     "defaultRequire": 1

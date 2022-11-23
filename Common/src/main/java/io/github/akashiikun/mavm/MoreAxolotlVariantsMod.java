@@ -16,5 +16,4 @@ package io.github.akashiikun.mavm;
 
 public class MoreAxolotlVariantsMod {
     public static final String MOD_ID = "mavm";
-    public static void init() { }
 }
