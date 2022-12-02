@@ -36,7 +36,7 @@ subprojects {
         minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
         mappings loom.officialMojangMappings()
 
-        modImplementation("io.github.akashiikun:mavapi:1.0.0-mc1.19.2")
+        modImplementation("io.github.akashiikun:mavapi:1.0.1-mc1.18.2")
     }
 
     processResources {
