@@ -16,6 +16,7 @@ package io.github.akashiikun.mavm;
 
 import forge.io.github.akashiikun.mavapi.v1.api.ModdedAxolotlVariant;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.animal.axolotl.Axolotl;
 import net.minecraftforge.fml.common.Mod;
 
 import static io.github.akashiikun.mavm.MoreAxolotlVariantsMod.MOD_ID;

@@ -21,6 +21,6 @@
   "depends": {
     "fabric": "*",
     "minecraft": ">=1.19",
-    "mavapi": "*"
+    "mavapi": ">=1.0.2"
   }
 }
