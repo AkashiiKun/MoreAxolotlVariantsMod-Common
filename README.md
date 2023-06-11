@@ -1,4 +1,5 @@
-# More Axolotl Variants Mod
+![Logo](https://github.com/AkashiiKun/MoreAxolotlVariantsMod-Common/blob/master/img/title.png?raw=true)
+
 [![Java](https://img.shields.io/badge/Made%20with-JAVA-red?style=for-the-badge)](https://java.com/)
 [![License: ARR](https://img.shields.io/badge/license-ARR-red.svg?style=for-the-badge)](LICENSE)
 
