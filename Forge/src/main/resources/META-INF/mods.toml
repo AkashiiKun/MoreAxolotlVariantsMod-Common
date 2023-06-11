@@ -1,0 +1,35 @@
+modLoader = "javafml"
+loaderVersion = "[46,)"
+#issueTrackerURL = ""
+license = "${license}"
+
+[[mods]]
+modId = "mavm"
+version = "${mod_version}"
+displayName = "${mod_name}"
+authors = "${mod_author}"
+description = '''
+${mod_description}
+'''
+logoFile = "icon.png"
+
+[[dependencies.mavm]]
+modId = "forge"
+mandatory = true
+versionRange = "[46,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.mavm]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.mavm]]
+modId = "mavapi"
+mandatory = true
+versionRange = "[1.0.5,)"
+ordering = "NONE"
+side = "BOTH"

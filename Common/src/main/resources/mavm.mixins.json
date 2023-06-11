@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "io.github.akashiikun.mavm.mixin",
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "AxolotlEntityRendererMixin",
+    "EntityRendererMixin"
+  ],
+  "mixins": [
+    "AxolotlMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
