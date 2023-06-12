@@ -27,9 +27,7 @@ subprojects {
     }
 
     repositories {
-        flatDir{
-            dirs "$rootProject.projectDir/lib"
-        }
+        maven { url 'https://jitpack.io' }
     }
 
     dependencies {
@@ -38,7 +36,7 @@ subprojects {
             officialMojangMappings()
         }
 
-        modImplementation "io.github.akashiikun:mavapi:${rootProject.mavapi_version}-mc${rootProject.minecraft_version}"
+        modImplementation "com.github.AkashiiKun:MoreAxolotlVariantsAPI-Common:1.20~dev-SNAPSHOT"
     }
 
     processResources {
