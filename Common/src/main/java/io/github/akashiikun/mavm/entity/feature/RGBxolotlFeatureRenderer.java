@@ -15,6 +15,7 @@
 package io.github.akashiikun.mavm.entity.feature;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import io.github.akashiikun.mavm.AxolotlVariants;
 import io.github.akashiikun.mavm.util.RainbowUtil;
 import net.minecraft.client.model.AxolotlModel;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -34,10 +35,12 @@ public class RGBxolotlFeatureRenderer extends RenderLayer<Axolotl, AxolotlModel<
 
     @Override
     public void render(PoseStack matrixStack, MultiBufferSource vertexConsumerProvider, int i, Axolotl entity, float f, float g, float h, float j, float k, float l) {
-                float[] colors = RainbowUtil.getColorComponents(DyeColor.WHITE, entity, h);
-                float s = colors[0];
-                float t = colors[1];
-                float u = colors[2];
-                renderColoredCutoutModel(this.getParentModel(), this.getTextureLocation(entity), matrixStack, vertexConsumerProvider, i, entity,  s, t, u);
+        if(entity.getVariant() == AxolotlVariants.WHITE.getVariant() && "partyxolotl".equals(entity.getName().getString())) {
+            float[] colors = RainbowUtil.getColorComponents(entity, h);
+            float s = colors[0];
+            float t = colors[1];
+            float u = colors[2];
+            renderColoredCutoutModel(this.getParentModel(), this.getTextureLocation(entity), matrixStack, vertexConsumerProvider, i, entity,  s, t, u);
+        }
     }
 }

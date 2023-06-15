@@ -14,6 +14,10 @@
 
 package io.github.akashiikun.mavm;
 
+import net.minecraft.world.entity.animal.axolotl.Axolotl;
+
+import java.util.Locale;
+
 public enum AxolotlVariants {
     LUCIA(true),
     WILDER(true),
@@ -26,10 +30,31 @@ public enum AxolotlVariants {
     WHITE(true),
     CYANIDE(true);
 
-    public boolean natural;
-    public String name;
-    private AxolotlVariants(boolean natural) {
+    private final String name;
+    private final boolean natural;
+    private Axolotl.Variant variant;
+    AxolotlVariants(boolean natural) {
         this.natural = natural;
-        this.name = name();
+        this.name = name().toLowerCase(Locale.ENGLISH);
+    }
+
+    public Axolotl.Variant getVariant() {
+        return variant;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public boolean isNatural() {
+        return natural;
+    }
+
+    public void setVariant(Axolotl.Variant variant) {
+        this.variant = variant;
+    }
+
+    static {
+        Axolotl.Variant.values(); // Ensure class is loaded before the variant is accessed
     }
 }

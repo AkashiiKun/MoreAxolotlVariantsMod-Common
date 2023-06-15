@@ -27,18 +27,17 @@ subprojects {
     }
 
     repositories {
-        maven { url 'https://jitpack.io' }
         exclusiveContent {
-        forRepository {
-            maven {
-                name = "Modrinth"
-                url = "https://api.modrinth.com/maven"
+            forRepository {
+                maven {
+                    name = "Modrinth"
+                    url = "https://api.modrinth.com/maven"
+                }
+            }
+            filter {
+                includeGroup "maven.modrinth"
             }
         }
-        filter {
-            includeGroup "maven.modrinth"
-        }
-    }
     }
 
     dependencies {
@@ -47,7 +46,7 @@ subprojects {
             officialMojangMappings()
         }
 
-        modImplementation "maven.modrinth:mavapi:1.1.0-mc1.20"
+        modImplementation "maven.modrinth:mavapi:1.1.1-mc1.20"
     }
 
     processResources {

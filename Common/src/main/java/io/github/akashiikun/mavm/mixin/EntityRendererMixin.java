@@ -14,6 +14,7 @@
 
 package io.github.akashiikun.mavm.mixin;
 
+import io.github.akashiikun.mavm.AxolotlVariants;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
@@ -29,9 +30,7 @@ public class EntityRendererMixin<T extends Entity> {
     protected void mavm$setGlowVariants(T entity, BlockPos pos, CallbackInfoReturnable<Integer> cir) {
         if(entity instanceof Axolotl axolotl){
             Axolotl.Variant variant = axolotl.getVariant();
-            if(variant.getName().equals("mavm:glowxolotl"))
-                cir.setReturnValue(15);
-            if(variant.getName().equals("mavm:white") && entity.hasCustomName() && "partyxolotl".equals(entity.getName().getString()))
+            if(variant== AxolotlVariants.GLOWXOLOTL.getVariant() || variant== AxolotlVariants.WHITE.getVariant() && entity.hasCustomName() && variant.name().equals("partyxolotl"))
                 cir.setReturnValue(15);
         }
     }

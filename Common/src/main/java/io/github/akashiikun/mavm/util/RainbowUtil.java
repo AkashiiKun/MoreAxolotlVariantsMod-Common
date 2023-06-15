@@ -23,13 +23,8 @@ import net.minecraft.world.item.DyeColor;
 public class RainbowUtil {
     private static final int DYES = DyeColor.values().length;
 
-    public static float[] getColorComponents(DyeColor dyeColor, Entity entity, float tickDelta) {
-        if (entity.hasCustomName() && "partyxolotl".equals(entity.getName().getString()) && entity instanceof Axolotl) {
-            if(Objects.equals(((Axolotl) entity).getVariant().getName(), "mavm:white")) {
+    public static float[] getColorComponents(Entity entity, float tickDelta) {
                 return getColorComponents(entity.getId(), entity.tickCount, tickDelta);
-            }
-        }
-        return dyeColor.getTextureDiffuseColors();
     }
 
     public static float[] getColorComponents(int seed, int age, float tickDelta) {

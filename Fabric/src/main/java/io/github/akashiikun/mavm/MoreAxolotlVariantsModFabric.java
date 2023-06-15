@@ -17,8 +17,7 @@ package io.github.akashiikun.mavm;
 import fabric.io.github.akashiikun.mavapi.v1.api.ModdedAxolotlVariant;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.resources.ResourceLocation;
-
-import java.util.Locale;
+import net.minecraft.world.entity.animal.axolotl.Axolotl;
 
 import static io.github.akashiikun.mavm.MoreAxolotlVariantsMod.MOD_ID;
 
@@ -26,14 +25,13 @@ public class MoreAxolotlVariantsModFabric implements ModInitializer {
     @Override
     public void onInitialize() {
         for(AxolotlVariants variant: AxolotlVariants.values()) {
-            if(variant.natural) {
-                ModdedAxolotlVariant.register(new ResourceLocation(MOD_ID, variant.name().toLowerCase(Locale.ENGLISH)))
-                        .natural()
-                        .build();
-            } else {
-                ModdedAxolotlVariant.register(new ResourceLocation(MOD_ID, variant.name().toLowerCase(Locale.ENGLISH)))
-                        .build();
+            ModdedAxolotlVariant.Builder builder = ModdedAxolotlVariant.register(new ResourceLocation(MOD_ID, variant.getName()));
+
+            if (variant.isNatural()) {
+                builder.natural();
             }
+            Axolotl.Variant build = builder.build();
+            variant.setVariant(build);
         }
     }
 }
