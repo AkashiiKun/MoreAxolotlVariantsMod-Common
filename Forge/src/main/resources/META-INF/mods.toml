@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[46,)"
+loaderVersion = "[43,)"
 #issueTrackerURL = ""
 license = "${license}"
 
@@ -16,20 +16,20 @@ logoFile = "icon.png"
 [[dependencies.mavm]]
 modId = "forge"
 mandatory = true
-versionRange = "[46,)"
+versionRange = "[43,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.mavm]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.20,)"
+versionRange = "[1.19,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.mavm]]
 modId = "mavapi"
 mandatory = true
-versionRange = "[1.0.5,)"
+versionRange = "[1.1.1,)"
 ordering = "NONE"
 side = "BOTH"

@@ -56,9 +56,9 @@ public abstract class AxolotlMixin extends Animal implements LerpingModel, Bucke
             int i = (int) Math.floor((Math.random() * 32));
             if (i == 2 || i == 4) {
                 if(this.isBaby()) {
-                    this.level().addParticle(ParticleTypes.GLOW, $this.getRandomX(0.3D), $this.getRandomY(), $this.getRandomZ(0.3D), 0.0D, 0.0D, 0.0D);
+                    this.level.addParticle(ParticleTypes.GLOW, $this.getRandomX(0.3D), $this.getRandomY(), $this.getRandomZ(0.3D), 0.0D, 0.0D, 0.0D);
                 } else {
-                    this.level().addParticle(ParticleTypes.GLOW, $this.getRandomX(0.6D), $this.getRandomY(), $this.getRandomZ(0.6D), 0.0D, 0.0D, 0.0D);
+                    this.level.addParticle(ParticleTypes.GLOW, $this.getRandomX(0.6D), $this.getRandomY(), $this.getRandomZ(0.6D), 0.0D, 0.0D, 0.0D);
                 }
             }
         }
