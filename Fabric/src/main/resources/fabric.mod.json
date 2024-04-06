@@ -7,6 +7,10 @@
   "authors": [
     "${mod_author}"
   ],
+  "contact": {
+    "homepage": "${discord}",
+    "sources": "${source}"
+  },
   "license": "${license}",
   "icon": "icon.png",
   "environment": "*",

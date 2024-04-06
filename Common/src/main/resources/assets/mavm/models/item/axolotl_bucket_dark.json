@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "mavapi:item/empty_axolotl_bucket",
-    "layer1": "mavm:item/axolotl_bucket_dark"
-  }
-}

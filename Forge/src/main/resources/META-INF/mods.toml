@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[46,)"
+loaderVersion = "[${forge},)"
 #issueTrackerURL = ""
 license = "${license}"
 
@@ -16,7 +16,7 @@ logoFile = "icon.png"
 [[dependencies.mavm]]
 modId = "forge"
 mandatory = true
-versionRange = "[46,)"
+versionRange = "[${forge},)"
 ordering = "NONE"
 side = "BOTH"
 

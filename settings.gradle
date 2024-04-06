@@ -4,6 +4,8 @@ pluginManagement {
         maven { url "https://maven.architectury.dev/" }
         maven { url "https://maven.minecraftforge.net/" }
         maven { url "https://maven.quiltmc.org/repository/release" }
+        mavenLocal()
+        mavenCentral()
         gradlePluginPortal()
     }
 }
