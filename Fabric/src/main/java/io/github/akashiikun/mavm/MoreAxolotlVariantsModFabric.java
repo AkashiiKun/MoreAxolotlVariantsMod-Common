@@ -14,7 +14,7 @@
 
 package io.github.akashiikun.mavm;
 
-import fabric.io.github.akashiikun.mavapi.v1.api.ModdedAxolotlVariant;
+import io.github.akashiikun.mavapi.v1.api.ModdedAxolotlVariant;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;

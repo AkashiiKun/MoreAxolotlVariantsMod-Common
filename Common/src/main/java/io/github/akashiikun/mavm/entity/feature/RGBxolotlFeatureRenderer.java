@@ -22,7 +22,6 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
-import net.minecraft.world.item.DyeColor;
 
 public class RGBxolotlFeatureRenderer extends RenderLayer<Axolotl, AxolotlModel<Axolotl>> {
 

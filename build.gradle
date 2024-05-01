@@ -1,8 +1,7 @@
 plugins {
     id "architectury-plugin" version "3.4-SNAPSHOT"
-    id "dev.architectury.loom" version "1.5-SNAPSHOT" apply false
-    id 'org.quiltmc.gradle.licenser' version '2.+' apply false
-    id "io.github.pacifistmc.forgix" version "1.2.6"
+    id "dev.architectury.loom" version "1.6-SNAPSHOT" apply false
+    id 'dev.yumi.gradle.licenser' version '1.1.+' apply false
     id 'com.github.johnrengelman.shadow' version '8.1.1' apply false
 }
 
@@ -23,10 +22,10 @@ project.buildnumber = System.getenv('BUILD_NUMBER') != null ? System.getenv('BUI
 subprojects {
     apply plugin: "dev.architectury.loom"
     apply plugin: "architectury-plugin"
-    apply plugin: "org.quiltmc.gradle.licenser"
+    apply plugin: "dev.yumi.gradle.licenser"
 
-    java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-    def targetJavaVersion = 17
+    java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+    def targetJavaVersion = 21
 
     archivesBaseName = "${rootProject.mod_id}-${project.name.toLowerCase()}"
     version = "${rootProject.mod_version}-mc${rootProject.minecraft}" + (dev && buildnumber != 'custom' ? "+${buildnumber}" : '')
@@ -48,7 +47,7 @@ subprojects {
             officialMojangMappings()
         }
 
-        modImplementation "io.github.akashiikun:mavapi:${rootProject.mavapi_version}-mc${rootProject.minecraft}"
+        modImplementation "io.github.akashiikun:mavapi-fabric:${rootProject.mavapi_version}-mc${rootProject.minecraft}"
     }
 
     processResources {
@@ -66,7 +65,7 @@ subprojects {
         inputs.property "fabric_api", rootProject.fabric_api
         inputs.property "forge", rootProject.forge_compat
 
-        filesMatching(["*.mod.json", "META-INF/mods.toml"]) {
+        filesMatching(["*.mod.json"]) {
             expand(["mod_id"         : project.mod_id,
                     "mod_version"    : project.mod_version,
                     "mod_name"       : project.mod_name,
@@ -107,25 +106,9 @@ subprojects {
 
     build.dependsOn applyLicenses
     applyLicenses.dependsOn processResources
-    build.finalizedBy mergeJars
 }
 
-forgix {
-    group = project.maven_group // This is the common group of the mod which by default in Architectury Template it's defined as "maven_group" in your gradle.properties. If this property is not defined then by default it'll fetch the group from the maven_group property in your gradle.properties
-    mergedJarName = "${project.mod_id}-${project.mod_version}-mc${project.minecraft}" + (dev && buildnumber != 'custom' ? "+${buildnumber}" : '' + ".jar") // This is the name of the merged jar. If this property is not defined then by default it'll fetch the "archives_base_name" property with the "mod_version" property in your gradle.properties.
-    outputDir = "build/libs" // This is the output directory of the merged jar from the root project. If this property is not defined then by default it's set to "Merged".
-
-    forge {
-        projectName = "forge" // This is the name of the forge project. If this property is not defined then by default it'll set to "forge" since that's the name the Architectury Template uses.
-        jarLocation = "build/libs/${project.mod_id}-forge-${project.mod_version}-mc${project.minecraft}" + (dev && buildnumber != 'custom' ? "+${buildnumber}" : '') + ".jar" // This is the location of the forge jar from the forge project. If this property is not defined then by default it fetches the jar with the shortest name.
-    }
-    fabric {
-        projectName = "fabric" // This is the name of the fabric project. If this property is not defined then by default it'll set to "fabric" since that's the name the Architectury Template uses.
-        jarLocation = "build/libs/${project.mod_id}-fabric-${project.mod_version}-mc${project.minecraft}" + (dev && buildnumber != 'custom' ? "+${buildnumber}" : '') + ".jar" // This is the location of the fabric jar from the fabric project. If this property is not defined then by default it fetches the jar with the shortest name.
-    }
-}
-
-def finalJar = artifacts.add("archives", layout.buildDirectory.file("libs/${project.mod_id}-${project.mod_version}-mc${project.minecraft}" + (dev && buildnumber != 'custom' ? "+${buildnumber}" : '' + ".jar")))
+def finalJar = artifacts.add("archives", layout.buildDirectory.file("fabric/build/libs/${project.mod_id}-${project.mod_version}-mc${project.minecraft}" + (dev && buildnumber != 'custom' ? "+${buildnumber}" : '' + ".jar")))
 
 publishing {
     publications {
@@ -137,7 +120,3 @@ publishing {
     repositories {
     }
 }
-
-mergeJars.mustRunAfter build
-publishToMavenLocal.mustRunAfter mergeJars
-assemble.finalizedBy(mergeJars)
