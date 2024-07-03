@@ -25,7 +25,7 @@ public class MoreAxolotlVariantsModFabric implements ModInitializer {
     @Override
     public void onInitialize() {
         for(AxolotlVariants variant: AxolotlVariants.values()) {
-            ModdedAxolotlVariant.Builder builder = ModdedAxolotlVariant.register(new ResourceLocation(MOD_ID, variant.getName()));
+            ModdedAxolotlVariant.Builder builder = ModdedAxolotlVariant.register(ResourceLocation.fromNamespaceAndPath(MOD_ID, variant.getName()));
 
             if (variant.isNatural()) {
                 builder.natural();

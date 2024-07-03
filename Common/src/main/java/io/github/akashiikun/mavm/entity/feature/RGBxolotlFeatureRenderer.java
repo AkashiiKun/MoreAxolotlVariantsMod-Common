@@ -35,11 +35,8 @@ public class RGBxolotlFeatureRenderer extends RenderLayer<Axolotl, AxolotlModel<
     @Override
     public void render(PoseStack matrixStack, MultiBufferSource vertexConsumerProvider, int i, Axolotl entity, float f, float g, float h, float j, float k, float l) {
         if(entity.getVariant() == AxolotlVariants.WHITE.getVariant() && "partyxolotl".equals(entity.getName().getString())) {
-            float[] colors = RainbowUtil.getColorComponents(entity, h);
-            float s = colors[0];
-            float t = colors[1];
-            float u = colors[2];
-            renderColoredCutoutModel(this.getParentModel(), this.getTextureLocation(entity), matrixStack, vertexConsumerProvider, i, entity,  s, t, u);
+            int colors = RainbowUtil.getColorComponents(entity, h);
+            renderColoredCutoutModel(this.getParentModel(), this.getTextureLocation(entity), matrixStack, vertexConsumerProvider, i, entity,  colors);
         }
     }
 }

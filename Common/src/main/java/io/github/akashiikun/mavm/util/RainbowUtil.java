@@ -15,6 +15,8 @@
 package io.github.akashiikun.mavm.util;
 
 import java.util.Objects;
+
+import net.minecraft.util.FastColor;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
@@ -23,19 +25,20 @@ import net.minecraft.world.item.DyeColor;
 public class RainbowUtil {
     private static final int DYES = DyeColor.values().length;
 
-    public static float[] getColorComponents(Entity entity, float tickDelta) {
+    public static int getColorComponents(Entity entity, float tickDelta) {
                 return getColorComponents(entity.getId(), entity.tickCount, tickDelta);
     }
 
-    public static float[] getColorComponents(int seed, int age, float tickDelta) {
+    public static int getColorComponents(int seed, int age, float tickDelta) {
         int n = age / 25 + seed;
         float r = ((float) (age % 25) + tickDelta) / 25.0F;
-        float[] color = Sheep.getColorArray(DyeColor.byId(n % DYES));
-        float[] nextColor = Sheep.getColorArray(DyeColor.byId((n + 1) % DYES));
-        float v = color[0] * (1.0F - r) + nextColor[0] * r;
-        float w = color[1] * (1.0F - r) + nextColor[1] * r;
-        float x = color[2] * (1.0F - r) + nextColor[2] * r;
 
-        return new float[]{v, w, x};
+        int o = DyeColor.values().length;
+        int p = n % o;
+        int q = (n + 1) % o;
+        int s = Sheep.getColor(DyeColor.byId(p));
+        int t = Sheep.getColor(DyeColor.byId(q));
+
+        return FastColor.ARGB32.lerp(r, s, t);
     }
 }
