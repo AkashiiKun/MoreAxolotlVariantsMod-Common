@@ -12,7 +12,7 @@
     "sources": "${source}"
   },
   "license": "${license}",
-  "icon": "icon.png",
+  "icon": "assets/mavm/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -25,6 +25,14 @@
   "depends": {
     "fabric": "*",
     "minecraft": ">=${minecraft}",
-    "mavapi": ">=1.2.0"
+    "mavapi": ">=1.3.0"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "${discord}"
+      },
+      "update_checker": true
+    }
   }
 }

@@ -21,4 +21,4 @@ build
 # other
 eclipse
 run
-/libs/
+/.architectury-transformer/

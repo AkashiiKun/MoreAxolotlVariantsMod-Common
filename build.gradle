@@ -1,7 +1,7 @@
 plugins {
-    id "architectury-plugin" version "3.4-SNAPSHOT"
-    id "dev.architectury.loom" version "1.6-SNAPSHOT" apply false
-    id 'dev.yumi.gradle.licenser' version '1.1.+' apply false
+    id "architectury-plugin" version "+"
+    id "dev.architectury.loom" version "1.+" apply false
+    id 'dev.yumi.gradle.licenser' version '2.+' apply false
     id 'com.github.johnrengelman.shadow' version '8.1.1' apply false
 }
 
@@ -32,8 +32,15 @@ subprojects {
     group = rootProject.maven_group
 
     repositories {
+        mavenLocal()
         flatDir{
             dirs "$rootProject.projectDir/libs"
+        }
+        maven { url "https://jitpack.io" }
+        maven { url "https://api.modrinth.com/maven"; name = "Modrinth" }
+        maven {
+            name = "Terraformers"
+            url = "https://maven.terraformersmc.com/"
         }
     }
 
@@ -48,6 +55,8 @@ subprojects {
         }
 
         modImplementation "io.github.akashiikun:mavapi-fabric:${rootProject.mavapi_version}-mc${rootProject.minecraft}"
+        modRuntimeOnly("com.terraformersmc:modmenu:${rootProject.modmenu_version}")
+        modRuntimeOnly("maven.modrinth:sodium:mc${rootProject.minecraft}-${rootProject.sodium_version}-fabric")
     }
 
     processResources {
@@ -63,7 +72,8 @@ subprojects {
         inputs.property "minecraft", rootProject.minecraft
         inputs.property "fabric_loader", rootProject.fabric_loader
         inputs.property "fabric_api", rootProject.fabric_api
-        inputs.property "forge", rootProject.forge_compat
+        inputs.property "neoforge", rootProject.neoforge_compat
+        inputs.property "neoforge_loader", rootProject.neoforge_loader
 
         filesMatching(["*.mod.json"]) {
             expand(["mod_id"         : project.mod_id,
@@ -78,7 +88,8 @@ subprojects {
                     "minecraft"      : project.minecraft,
                     "fabric_loader"  : project.fabric_loader,
                     "fabric_api"  : project.fabric_api,
-                    "forge"  : project.forge_compat])
+                    "neoforge"  : project.neoforge_compat,
+                    "neoforge_loader"  : project.neoforge_loader])
         }
 
         filesMatching('pack.mcmeta') {
