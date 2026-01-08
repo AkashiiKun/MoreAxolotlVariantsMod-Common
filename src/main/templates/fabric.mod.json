@@ -27,9 +27,5 @@
       "io.github.akashiikun.mavm.MAVMInit::onInitialize"
     ]
   },
-  "custom": {
-    "modmenu": {
-      "badges": ["library"]
-    }
-  }
+
 }
