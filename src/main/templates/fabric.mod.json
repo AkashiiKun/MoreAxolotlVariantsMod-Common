@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+    "${mod_author}"
+  ],
+  "contact": {
+    "homepage": "https://github.com/${github}",
+    "issues": "https://github.com/${github}/issues",
+    "sources": "https://github.com/${github}"
+  },
+  "icon": "icon.png",
+  "license": "${mod_license}",
+  "environment": "*",
+  "depends": {
+    "fabricloader": ">=0.17.0",
+    "minecraft": "${mc}",
+    "java": ">=17",
+    "fabric-api": ">=${fapi}",
+    "mavapi": ">=${mavapi}"
+  },
+  "entrypoints": {
+    "main": [
+      "io.github.akashiikun.mavm.MAVMInit::onInitialize"
+    ]
+  },
+  "custom": {
+    "modmenu": {
+      "badges": ["library"]
+    }
+  }
+}

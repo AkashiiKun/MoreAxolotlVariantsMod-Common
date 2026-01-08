@@ -1,0 +1,9 @@
+run
+build
+/.idea
+.gradle
+!.gitkeep
+/.architectury-transformer
+/.kotlin/
+
+.DS_Store
