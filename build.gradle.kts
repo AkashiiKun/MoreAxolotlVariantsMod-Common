@@ -35,7 +35,7 @@ val loader = when {
 
 modstitch {
     minecraftVersion = mcVersion
-    javaVersion = 21
+    javaVersion = 25
 
     parchment {
         prop("parchment.version") { mappingsVersion = it }
@@ -119,11 +119,11 @@ stonecutter {
 
     replacements {
         string {
-            direction = eval(current.version, ">=1.21.11")
+            direction = eval(current.version, ">=26.1-snapshot")
             replace("ResourceLocation", "Identifier")
         }
         string {
-            direction = eval(current.version, ">=1.21.11")
+            direction = eval(current.version, ">=26.1-snapshot")
             replace("import net.minecraft.Util;", "import net.minecraft.util.Util;")
         }
     }
