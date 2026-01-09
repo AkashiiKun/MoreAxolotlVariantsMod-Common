@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "io.github.akashiikun.mavm.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "refmap": "mavm-neoforge.refmap.json",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "AxolotlMixin"
+  ],
+  "client": [
+    "client.EntityRendererMixin"
+  ]
+}

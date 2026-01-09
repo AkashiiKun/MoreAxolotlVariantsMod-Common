@@ -1,0 +1,9 @@
+{
+  "asset_id": "mavm:entity/axolotl/axolotl_glowxolotl",
+  "rare": true,
+  "spawn_conditions": [
+    {
+      "priority": 0
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "mavapi.mod.mavm": "MAVM",
+
+  "mavapi.variant.mavm.lucia": "Lucia",
+  "mavapi.variant.mavm.wilder": "Wilder",
+  "mavapi.variant.mavm.golden": "Golden",
+  "mavapi.variant.mavm.green": "Green",
+  "mavapi.variant.mavm.skulk": "Skulk",
+  "mavapi.variant.mavm.black": "Black",
+  "mavapi.variant.mavm.red": "Red",
+  "mavapi.variant.mavm.glowxolotl": "Glowxolotl",
+  "mavapi.variant.mavm.white": "White",
+  "mavapi.variant.mavm.cyanide": "Cyanide"
+}
