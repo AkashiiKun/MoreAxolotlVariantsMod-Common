@@ -1,5 +1,6 @@
 {
   "asset_id": "mavm:entity/axolotl/axolotl_lucia",
+  "baby_asset_id": "mavm:entity/axolotl/axolotl_lucia_baby",
   "spawn_conditions": [
     {
       "priority": 0

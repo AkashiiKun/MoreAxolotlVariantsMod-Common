@@ -1,5 +1,6 @@
 {
   "asset_id": "mavm:entity/axolotl/axolotl_glowxolotl",
+  "baby_asset_id": "mavm:entity/axolotl/axolotl_glowxolotl_baby",
   "rare": true,
   "spawn_conditions": [
     {

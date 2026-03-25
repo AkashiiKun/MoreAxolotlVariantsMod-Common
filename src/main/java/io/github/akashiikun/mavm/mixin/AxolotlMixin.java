@@ -17,7 +17,7 @@ package io.github.akashiikun.mavm.mixin;
 import io.github.akashiikun.mavapi.impl.extension.AxolotlExtension;
 
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
@@ -41,7 +41,7 @@ public abstract class AxolotlMixin  extends Animal implements Bucketable {
 
     @Inject(method = "getAmbientSound", at = @At("TAIL"), cancellable = true)
     protected void mavm$setGlowxolotlSounds(CallbackInfoReturnable<SoundEvent> cir) {
-        if (((AxolotlExtension)this).getVariant().is(ResourceLocation.parse("mavm:glowxolotl")))
+        if (((AxolotlExtension)this).getVariant().is(Identifier.parse("mavm:glowxolotl")))
             if(Math.floor((Math.random() * 4)) == 2) {
                 cir.setReturnValue(SoundEvents.GLOW_SQUID_AMBIENT);
             }
@@ -50,7 +50,7 @@ public abstract class AxolotlMixin  extends Animal implements Bucketable {
     @Inject(at = @At("RETURN"), method = "baseTick")
     public void mavm$setGlowxolotlParticles(CallbackInfo ci) {
         Axolotl $this = Axolotl.class.cast(this);
-        if (((AxolotlExtension)this).getVariant().is(ResourceLocation.parse("mavm:glowxolotl"))) {
+        if (((AxolotlExtension)this).getVariant().is(Identifier.parse("mavm:glowxolotl"))) {
             int i = (int) Math.floor((Math.random() * 32));
             if (i == 2 || i == 4) {
                 if(this.isBaby()) {

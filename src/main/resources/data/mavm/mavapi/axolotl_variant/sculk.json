@@ -1,5 +1,6 @@
 {
   "asset_id": "mavm:entity/axolotl/axolotl_sculk",
+  "baby_asset_id": "mavm:entity/axolotl/axolotl_sculk_baby",
   "rare": true,
   "spawn_conditions": [
     {

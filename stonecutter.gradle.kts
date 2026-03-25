@@ -4,9 +4,9 @@ plugins {
 
     id("dev.kikugie.stonecutter")
 
-    val modstitchVersion = "0.7.1-unstable"
+    val modstitchVersion = "0.8.4"
     id("dev.isxander.modstitch.base") version modstitchVersion apply false
-    id("fabric-loom") version "1.13-SNAPSHOT" apply false
+//    id("net.fabricmc.fabric-loom") version "1.15-SNAPSHOT" apply false
 
     id("me.modmuss50.mod-publish-plugin") version "0.8.4" apply false
     id("org.ajoberstar.grgit") version "5.0.+" apply false

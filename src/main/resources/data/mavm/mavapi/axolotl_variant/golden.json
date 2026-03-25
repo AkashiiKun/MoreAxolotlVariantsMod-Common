@@ -1,5 +1,6 @@
 {
   "asset_id": "mavm:entity/axolotl/axolotl_golden",
+  "baby_asset_id": "mavm:entity/axolotl/axolotl_golden_baby",
   "spawn_conditions": [
     {
       "priority": 0

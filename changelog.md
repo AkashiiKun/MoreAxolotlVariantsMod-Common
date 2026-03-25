@@ -4,6 +4,7 @@
 
 |         | Fabric | NeoForge |
 |---------|--------|----------|
+| 26.1    | ✅      | ✅        |
 | 1.21.11 | ✅      | ✅        |
 | 1.21.10 | ✅      | ✅        |
 | 1.21.9  | ❌      | ❌        |
@@ -14,5 +15,4 @@
 
 ### Changes
 
-- Add targets for 1.21.10, 1.21.8, and 1.21.5.
-- Readd data driven bucket variant textures from MAVM v1.
+- Add support for Minecraft 26.1.

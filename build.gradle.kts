@@ -35,7 +35,11 @@ val loader = when {
 
 modstitch {
     minecraftVersion = mcVersion
-    javaVersion = 21
+    javaVersion = if (stonecutter.eval(stonecutter.current.version, ">=26.1")) {
+        25
+    } else {
+        21
+    }
 
     parchment {
         prop("parchment.version") { mappingsVersion = it }
@@ -115,6 +119,7 @@ stonecutter {
 
     dependencies {
         put("fapi", (findProperty("deps.fabricApi")?.toString() ?: "0.0.0"))
+        put("mavapi", (findProperty("deps.mavapi")?.toString() ?: "0.0.0"))
     }
 
     replacements {
@@ -125,6 +130,10 @@ stonecutter {
         string {
             direction = eval(current.version, ">=1.21.11")
             replace("import net.minecraft.Util;", "import net.minecraft.util.Util;")
+        }
+        string {
+            direction = eval(current.version, ">=26.1")
+            replace("FabricTrackedDataRegistry", "FabricEntityDataRegistry")
         }
     }
 }

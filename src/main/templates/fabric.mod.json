@@ -26,6 +26,5 @@
     "main": [
       "io.github.akashiikun.mavm.MAVMInit::onInitialize"
     ]
-  },
-
+  }
 }

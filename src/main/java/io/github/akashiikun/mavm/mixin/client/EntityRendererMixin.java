@@ -17,7 +17,7 @@ package io.github.akashiikun.mavm.mixin.client;
 import io.github.akashiikun.mavapi.impl.extension.AxolotlExtension;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
 import org.spongepowered.asm.mixin.Mixin;
@@ -30,7 +30,7 @@ public class EntityRendererMixin<T extends Entity> {
     @Inject(method = "getBlockLightLevel", at = @At("TAIL"), cancellable = true)
     protected void mavm$setGlowVariants(T entity, BlockPos pos, CallbackInfoReturnable<Integer> cir) {
         if(entity instanceof Axolotl axolotl){
-            if(((AxolotlExtension)axolotl).getVariant().is(ResourceLocation.parse("mavm:glowxolotl")))
+            if(((AxolotlExtension)axolotl).getVariant().is(Identifier.parse("mavm:glowxolotl")))
                 cir.setReturnValue(15);
         }
     }
