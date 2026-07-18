@@ -3,12 +3,12 @@
 
   "mavapi.variant.mavm.lucia": "루시아",
   "mavapi.variant.mavm.wilder": "외일더",
-  "mavapi.variant.mavm.golden": "금색",
-  "mavapi.variant.mavm.green": "초록색",
+  "mavapi.variant.mavm.golden": "골든",
+  "mavapi.variant.mavm.green": "그린",
   "mavapi.variant.mavm.skulk": "스컬크",
-  "mavapi.variant.mavm.black": "검은색",
-  "mavapi.variant.mavm.red": "빨간색",
+  "mavapi.variant.mavm.black": "블랙",
+  "mavapi.variant.mavm.red": "레드",
   "mavapi.variant.mavm.glowxolotl": "발광 아홀로틀",
-  "mavapi.variant.mavm.white": "흰색",
+  "mavapi.variant.mavm.white": "화이트",
   "mavapi.variant.mavm.cyanide": "시안화물"
 }
