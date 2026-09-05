@@ -1,0 +1,14 @@
+{
+  "mavapi.mod.mavm": "MAVM",
+
+  "mavapi.variant.mavm.lucia": "루시아 아홀로틀",
+  "mavapi.variant.mavm.wilder": "외일더 아홀로틀",
+  "mavapi.variant.mavm.golden": "금빛 아홀로틀",
+  "mavapi.variant.mavm.green": "초록색 아홀로틀",
+  "mavapi.variant.mavm.skulk": "스컬크 아홀로틀",
+  "mavapi.variant.mavm.black": "검은색 아홀로틀",
+  "mavapi.variant.mavm.red": "빨간색 아홀로틀",
+  "mavapi.variant.mavm.glowxolotl": "발광 아홀로틀",
+  "mavapi.variant.mavm.white": "하얀색 아홀로틀",
+  "mavapi.variant.mavm.cyanide": "시안화물 아홀로틀"
+}
