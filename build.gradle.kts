@@ -33,6 +33,16 @@ val loader = when {
     else -> error("Unknown loader")
 }
 
+val snapshotVer = "${grgit.branch.current().name.replace('/', '.')}-SNAPSHOT"
+if (System.getenv().containsKey("GITHUB_ACTIONS")) {
+    version = "$version+$snapshotVer"
+}
+
+val testmod by sourceSets.registering {
+    compileClasspath += sourceSets.main.get().compileClasspath
+    runtimeClasspath += sourceSets.main.get().runtimeClasspath
+}
+
 modstitch {
     minecraftVersion = mcVersion
     javaVersion = if (stonecutter.eval(stonecutter.current.version, ">=26.1")) {
@@ -84,11 +94,6 @@ modstitch {
 
         configureNeoForge {
             runs {
-                register("modClient") {
-                    client()
-                    sourceSet = sourceSets.main
-                    gameDirectory = layout.projectDirectory.dir("../../run")
-                }
             }
 
             mods {
@@ -107,6 +112,8 @@ modstitch {
             configs.register("mavm-neoforge")
         }
     }
+
+    createProxyConfigurations(testmod.get())
 }
 
 stonecutter {
@@ -176,8 +183,6 @@ dependencies {
         }
     }
 
-    modDependency("mavapi", { "maven.modrinth:mavapi:${it}" })
-
     if (isFabric) {
         modDependency("fabricApi", { "net.fabricmc.fabric-api:fabric-api:$it" }, requiredByDependants = true)
 
@@ -186,6 +191,8 @@ dependencies {
     if (isNeoforge) {
         //modstitchModRuntimeOnly("thedarkcolour:kotlinforforge-neoforge:${findProperty("deps.kotlinForForge")}")
     }
+
+    modDependency("mavapi", { "maven.modrinth:mavapi:${it}" })
 //
 //    listOf(
 //        "imageio:imageio-core",
@@ -288,7 +295,7 @@ publishMods {
             minecraftVersions.addAll(versionList("pub.curseMC"))
 
             announcementTitle = "Download $mcVersion for ${loader.replaceFirstChar { it.uppercase() }} from CurseForge"
-            requires { slug.set("mavapi") } 
+            requires { slug.set("mavapi") }
             if (isFabric) {
                 requires { slug.set("fabric-api") }
             }

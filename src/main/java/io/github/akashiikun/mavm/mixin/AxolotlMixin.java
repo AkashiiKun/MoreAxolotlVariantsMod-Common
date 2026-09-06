@@ -22,7 +22,8 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.animal.Bucketable;
+//~ if >=26.2 'import net.minecraft.world.entity.Bucketable;' -> 'import net.minecraft.world.entity.animal.Bucketable;'
+import net.minecraft.world.entity.Bucketable;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
 import net.minecraft.world.level.Level;
 

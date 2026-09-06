@@ -4,7 +4,7 @@ plugins {
 
     id("dev.kikugie.stonecutter")
 
-    val modstitchVersion = "0.8.4"
+    val modstitchVersion = "0.8.5"
     id("dev.isxander.modstitch.base") version modstitchVersion apply false
 //    id("net.fabricmc.fabric-loom") version "1.15-SNAPSHOT" apply false
 
@@ -31,9 +31,7 @@ allprojects {
 stonecutter {
     parameters {
         fun String.propDefined() = project(node.metadata.project).findProperty(this)?.toString()?.isNotBlank() ?: false
-        constants += listOf(
-            "mod-menu" to "deps.modMenu".propDefined(),
-        )
+        constants["mod-menu"] = findProperty("deps.modMenu") != null
     }
 }
 

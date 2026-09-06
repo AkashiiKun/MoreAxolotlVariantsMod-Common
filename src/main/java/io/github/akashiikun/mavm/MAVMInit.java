@@ -16,7 +16,7 @@ package io.github.akashiikun.mavm;
 
 //? fabric {
 //?} else if neoforge {
-import net.minecraft.core.Holder;
+/*import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
@@ -27,21 +27,21 @@ import net.neoforged.neoforge.registries.DataPackRegistryEvent;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
-//?}
+*///?}
 
 
 //? if neoforge {
-@Mod(MAVMInit.MOD_ID)
-//?}
+/*@Mod(MAVMInit.MOD_ID)
+*///?}
 public class MAVMInit {
 	public static final String MOD_ID = "mavm";
 
 	//? if neoforge {
-	public MAVMInit(IEventBus modEventBus) {
+	/*public MAVMInit(IEventBus modEventBus) {
 		//onInitialize();
 		//modEventBus.register(this);
 	}
-	//?}
+	*///?}
 
 	public void onInitialize() {
 
@@ -50,12 +50,12 @@ public class MAVMInit {
 	}
 
 	//? if neoforge {
-	@SubscribeEvent
+	/*@SubscribeEvent
 	public void event(DataPackRegistryEvent.NewRegistry event) {
 	}
 
 	@SubscribeEvent
 	public void event(RegisterEvent event) {
 		}
-	//?}
+	*///?}
 }
